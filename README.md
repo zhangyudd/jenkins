@@ -1,7 +1,7 @@
-## https://github.com/chaiyd/jenkins.git
+## https://github.com/zhangyudd/jenkins.git
 
 ## jenkins
-* docker pull chaiyd/jenkins:2.249.2
+* docker pull chaiyd/jenkins:2.249.1
 * 使用Jenkins官方dokerfile进行更改，更换war包源地址默认为LTS
 * 默认使用jenkins 用户.
 * build时，需指定版本号，默认为LTS版最新版
@@ -20,7 +20,7 @@
 ---
 
 ## build & run
-* docker build --build-arg JENKINS_VERSION=2.235.4 -t jenkins:2.235.4 .
+* docker build --build-arg JENKINS_VERSION=2.249.1 -t jenkins:2.249.1 .
 * docker-compose up -d
 
 ## jenkinsfile
