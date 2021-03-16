@@ -12,9 +12,7 @@ RUN apk add --no-cache \
   tini \
   ttf-dejavu \
   tzdata \
-  unzip \
-  npm \
-  docker
+  unzip 
 
 ARG user=jenkins
 ARG group=jenkins
@@ -24,8 +22,7 @@ ARG http_port=8080
 ARG agent_port=50000
 ARG JENKINS_HOME=/var/jenkins_home
 ARG REF=/usr/share/jenkins/ref
-ARG maven=maven-3.6.1
-ARG JENKINS_VERSION=2.249.1
+ARG JENKINS_VERSION=2.263.4
 
 ENV JENKINS_HOME $JENKINS_HOME
 ENV JENKINS_SLAVE_AGENT_PORT ${agent_port}
@@ -86,11 +83,5 @@ ENTRYPOINT ["/sbin/tini", "--", "/usr/local/bin/jenkins.sh"]
 
 # from a derived Dockerfile, can use `RUN install-plugins.sh active.txt` to setup $REF/plugins from a support bundle
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
-ADD $maven /usr/local/$maven
-RUN chmod a+x -R /usr/local/bin/  && \
-    chmod a+x -R /usr/local/$maven/bin
 
-ENV MAVEN_HOME /usr/local/$maven
-ENV PATH $MAVEN_HOME/bin:$PATH
-RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
 USER ${user}
