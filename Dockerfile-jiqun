@@ -13,9 +13,6 @@ RUN apk add --no-cache \
   ttf-dejavu \
   tzdata \
   unzip \
-  && rm -rf /var/cache/apk/* \
-  && rm -rf /root/.cache \
-  && rm -rf /tmp/*
 
 ARG user=jenkins
 ARG group=jenkins
