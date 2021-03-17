@@ -12,7 +12,10 @@ RUN apk add --no-cache \
   tini \
   ttf-dejavu \
   tzdata \
-  unzip 
+  unzip \
+  && rm -rf /var/cache/apk/* \
+  && rm -rf /root/.cache \
+  && rm -rf /tmp/*
 
 ARG user=jenkins
 ARG group=jenkins
